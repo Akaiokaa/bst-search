@@ -17,6 +17,34 @@ public class BstSearch {
      * @throws NullPointerException if target is null
      */
     public static <T extends Comparable<T>> boolean contains(BinaryTreeNode<T> root, T target) {
-        return false;
+         /*
+         * Integer BST structure:
+         *
+         *          5
+         *        /   \
+         *       3     8
+         *      / \   / \
+         *     2   4 6   9
+         *
+         * search 4
+         */
+        /*
+        
+        /*
+         * String BST structure:
+         *
+         *           "m"
+         *         /     \
+         *       "c"      "t"
+         *      /   \     /   \
+         *    "a"   "e" "p"   "z"
+         *
+         * a
+         */
+        if (root == null) { return false; }
+        int cmp = target.compareTo(root.data);
+        if (root.data.equals(target) || cmp == 0) { return true; }
+        if (cmp < 0) { return contains(root.left, target);}
+        return contains(root.right, target);
     }
 }
